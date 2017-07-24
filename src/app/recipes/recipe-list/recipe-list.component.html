@@ -10,21 +10,10 @@
 
   <div class="col-sm-12 clearfix">
 
-    <a href="#" class="list-group-item clearfix" *ngFor="let recipe of recipes">
-      <div class="float-left">
-        <h4> {{ recipe.name }} </h4>
-        <p> {{ recipe.description }} </p>
-      </div>
-      <span class="media-right">
-          <img [src]="recipe.imagePath"
-             alt="{{ recipe.name }}"
-             class="img-fluid"
-             style="max-height: 80px;">  
-      </span>
-
-    </a>
-
-    <app-recipe-item></app-recipe-item>
+    <app-recipe-item *ngFor="let recipeEl of recipes"
+                     [recipe]="recipeEl"
+                     (recipeSelected)="onRecipeSelected(recipeEl)">
+    </app-recipe-item>
 
   </div>
 
